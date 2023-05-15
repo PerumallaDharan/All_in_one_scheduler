@@ -7,6 +7,10 @@
 
 
 #include <iostream>
+#include "Menus\Disc\fcfsmenu2.h"
+#include "Menus\Disc\sstfmenu.h"
+#include "Menus\Disc\scanmenu.h"
+#include "Menus\Disc\lookmenu.h"
 using namespace std;
 
 int disc_menu()
@@ -27,16 +31,16 @@ int disc_menu()
     switch (n)
     {
     case 1:
-        dopagefcfs();
+        fcfsmenu2();
         break;
     case 2:
-        dopagesstf();
+        sstfmenu();
         break;
     case 3:
-        dopagescan();
+        scanmenu();
         break;
     case 4:
-        dopagelook();
+        lookmenu();
         break;
     case 5:
         exit(0);
