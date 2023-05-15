@@ -71,7 +71,7 @@
 - [Perumalla Dharan](https://github.com/PerumallaDharan)        
 - [Tarun Teja Kudeti]()       
 - [Subrahmanya Sastry N](https://github.com/PavanNVSS)   
-- [Vatala Pahlgun](https://github.com/Vatala-Phalgun)          
+- [Vatala Phalgun](https://github.com/Vatala-Phalgun)          
 - [Grandhi Dinesh](https://github.com/dinesh-grandhi)
 
 <hr>
