@@ -77,7 +77,7 @@
 <hr>
 
 ## Contributions
-Contributions to this repository are welcome. If you find any bugs or would like to add additional algorithms or codes, feel free to create a pull request or open an issue.
+Contributions to this repository are welcomed. If you find any bugs or would like to add additional algorithms or codes, feel free to create a pull request or open an issue.
 
 <hr />
 
