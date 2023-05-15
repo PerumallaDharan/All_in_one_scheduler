@@ -8,11 +8,12 @@
 
 
 #include <iostream>
-#include "CPU_Scheduling_Headers\fcfs.h"
-#include "CPU_Scheduling_Headers\sjf.h"
-#include "CPU_Scheduling_Headers\priority.h"
-#include "CPU_Scheduling_Headers\preemptive.h"
-#include "CPU_Scheduling_Headers\roundrobin.h"
+#include <fstream>
+#include "Menus\CPU\fcfsmenu.h"
+#include "Menus\CPU\sjfmenu.h"
+#include "Menus\CPU\prioritymenu.h"
+#include "Menus\CPU\preemptivemenu.h"
+#include "Menus\CPU\roundrobinmenu.h"
 using namespace std;
 
 int cpu_menu()
@@ -32,21 +33,21 @@ int cpu_menu()
     cin >> n;
     system("cls");
     switch (n)
-    {
+    { 
     case 1:
-        dofcfs();
+        fcfsmenu();
         break;
     case 2:
-        dosjf();
+        sjfmenu();
         break;
     case 3:
-        dopriority();
+        prioritymenu();
         break;
     case 4:
-        doprepriority();
+        preemptivemenu();
         break;
     case 5:
-        doroundrobin();
+        roundrobinmenu();
         break;
     case 6:
         exit(0);

@@ -7,10 +7,6 @@
 
 
 #include <iostream>
-#include "Disc_Scheduling_Headers\pagefcfs.h"
-#include "Disc_Scheduling_Headers\pagesstf.h"
-#include "Disc_Scheduling_Headers\pagescan.h"
-#include "Disc_Scheduling_Headers\pagelook.h"
 using namespace std;
 
 int disc_menu()

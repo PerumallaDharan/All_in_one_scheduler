@@ -5,8 +5,7 @@
 
 
 #include <iostream>
-#include "Deadlocks_Headers\producer_consumer.h"
-#include "Deadlocks_Headers\banker.h"
+#include <fstream>
 using namespace std;
 
 int deadlocks_menu(){
@@ -24,10 +23,10 @@ int deadlocks_menu(){
     switch (n)
     {
     case 1:
-        producer_consumer();
+        // producer_consumer_menu();
         break;
     case 2:
-        banker();
+        // bankers_menu();
         break;
     case 3:
         exit(0);

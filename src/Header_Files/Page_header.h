@@ -6,10 +6,6 @@
 // • Least Frequently Used
 
 #include <iostream>
-#include "Page_Replacement_Headers\fifo.h"
-#include "Page_Replacement_Headers\lru.h"
-#include "Page_Replacement_Headers\optimal.h"
-#include "Page_Replacement_Headers\lfu.h"
 using namespace std;
 
 int page_menu()
