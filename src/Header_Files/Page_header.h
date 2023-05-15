@@ -6,6 +6,10 @@
 // • Least Frequently Used
 
 #include <iostream>
+#include "Menus\Page\lrumenu.h"
+#include "Menus\Page\optimalmenu.h"
+#include "Menus\Page\lfumenu.h"
+#include "Menus\Page\fifomenu.h"
 using namespace std;
 
 int page_menu()
@@ -26,16 +30,16 @@ int page_menu()
     switch (n)
     {
     case 1:
-        dofifo();
+        fifomenu();
         break;
     case 2:
-        dolru();
+        lrumenu();
         break;
     case 3:
-        dooptimal();
+        optimalmenu();
         break;
     case 4:
-        dolfu();
+        lfumenu();
         break;
     case 5:
         exit(0);
