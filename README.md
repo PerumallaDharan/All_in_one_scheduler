@@ -71,13 +71,13 @@
 - [Perumalla Dharan](https://github.com/PerumallaDharan)        
 - [Tarun Teja Kudeti]()       
 - [Subrahmanya Sastry N](https://github.com/PavanNVSS)   
-- [Vatala Pahlgun](https://github.com/Vatala-Phalgun)          
+- [Vatala Phalgun](https://github.com/Vatala-Phalgun)          
 - [Grandhi Dinesh](https://github.com/dinesh-grandhi)
 
 <hr>
 
 ## Contributions
-Contributions to this repository are welcome. If you find any bugs or would like to add additional algorithms or codes, feel free to create a pull request or open an issue.
+Contributions to this repository are welcomed. If you find any bugs or would like to add additional algorithms or codes, feel free to create a pull request or open an issue.
 
 <hr />
 
