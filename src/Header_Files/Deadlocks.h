@@ -6,6 +6,8 @@
 
 #include <iostream>
 #include <fstream>
+#include "Menus\Deadlocks\bankersmenu.h"
+#include "Menus\Deadlocks\producer_consumer_menu.h"
 using namespace std;
 
 int deadlocks_menu(){
@@ -23,10 +25,10 @@ int deadlocks_menu(){
     switch (n)
     {
     case 1:
-        // producer_consumer_menu();
+        producer_consumer_menu();
         break;
     case 2:
-        // bankers_menu();
+        bankers_menu();
         break;
     case 3:
         exit(0);
