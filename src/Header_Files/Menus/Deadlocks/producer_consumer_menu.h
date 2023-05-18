@@ -10,9 +10,9 @@ int producer_consumer_menu(){
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "\t\t\t\t\tChoose any one of the following" << endl;
     cout << "\t\t\t\t\t1. Producer Consumer Problem using Semaphores Description" << endl;
-    cout << "\t\t\t\t\t2. Producer Consumer Problem using Semaphores Example" << endl;
-    cout << "\t\t\t\t\t3. Producer Consumer Problem using Semaphores Code" << endl;
-    cout << "\t\t\t\t\t4. Exit" << endl;
+    // cout << "\t\t\t\t\t2. Producer Consumer Problem using Semaphores Example" << endl;
+    cout << "\t\t\t\t\t2. Producer Consumer Problem using Semaphores Code" << endl;
+    cout << "\t\t\t\t\t3. Exit" << endl;
     cout << "Enter your choice: ";
     cin >> n;
     fstream myfile;
@@ -28,16 +28,19 @@ int producer_consumer_menu(){
         }
         myfile.close();
         break;
+    // case 2:
+    //     myfile.open("Producer_Consumer_Example.txt", ios::in);
+    //     while (getline(myfile, line))
+    //     {
+    //         cout << line << endl;
+    //     }
+    //     myfile.close();
+    //     break;
     case 2:
-        myfile.open("Producer_Consumer_Example.txt", ios::in);
-        while (getline(myfile, line))
-        {
-            cout << line << endl;
-        }
-        myfile.close();
+        producer_consumer();
         break;
     case 3:
-        producer_consumer();
+        exit(0);
         break;
     default:
         cout << "Invalid choice" << endl;

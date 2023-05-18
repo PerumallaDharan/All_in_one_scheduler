@@ -10,7 +10,7 @@ int roundrobinmenu(){
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "\t\t\t\t\tChoose any one of the following" << endl;
     cout << "\t\t\t\t\t1. Round Robin Description" << endl;
-    cout << "\t\t\t\t\t2. Round Robin Example" << endl;
+    // cout << "\t\t\t\t\t2. Round Robin Example" << endl;
     cout << "\t\t\t\t\t3. Round Robin Code" << endl;
     cout << "\t\t\t\t\t4. Exit" << endl;
     cout << "Enter your choice: ";
@@ -28,17 +28,19 @@ int roundrobinmenu(){
         }
         myfile.close();
         break;
+    // case 2:
+    //     myfile.open("RoundRobin_Example.txt", ios::in);
+    //     while (getline(myfile, line))
+    //     {
+    //         cout << line << endl;
+    //     }
+    //     myfile.close();
+    //     break;
     case 2:
-        myfile.open("RoundRobin_Example.txt", ios::in);
-        while (getline(myfile, line))
-        {
-            cout << line << endl;
-        }
-        myfile.close();
-        break;
-    case 3:
         doroundrobin();
         break;
+    case 3:
+        exit(0);
     default:
         cout << "Invalid choice" << endl;
         break;

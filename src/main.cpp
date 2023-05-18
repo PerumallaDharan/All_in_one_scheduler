@@ -40,13 +40,13 @@ int main()
             cpu_menu();
             break;
         case 2:
-            // page_menu();
+            page_menu();
             break;
         case 3:
-            // disc_menu();
+            disc_menu();
             break;
         case 4:
-            // deadlocks_menu();
+            deadlocks_menu();
             break;
         default: 
             break;

@@ -10,9 +10,9 @@ int sjfmenu(){
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "\t\t\t\t\tChoose any one of the following" << endl;
     cout << "\t\t\t\t\t1. SJF Description" << endl;
-    cout << "\t\t\t\t\t2. SJF Example" << endl;
-    cout << "\t\t\t\t\t3. SJF Code" << endl;
-    cout << "\t\t\t\t\t4. Exit" << endl;
+    // cout << "\t\t\t\t\t2. SJF Example" << endl;
+    cout << "\t\t\t\t\t2. SJF Code" << endl;
+    cout << "\t\t\t\t\t3. Exit" << endl;
     cout << "Enter your choice: ";
     cin >> n;
     fstream myfile;
@@ -28,17 +28,19 @@ int sjfmenu(){
         }
         myfile.close();
         break;
+    // case 2:
+    //     myfile.open("SJF_Example.txt", ios::in);
+    //     while (getline(myfile, line))
+    //     {
+    //         cout << line << endl;
+    //     }
+    //     myfile.close();
+    //     break;
     case 2:
-        myfile.open("SJF_Example.txt", ios::in);
-        while (getline(myfile, line))
-        {
-            cout << line << endl;
-        }
-        myfile.close();
-        break;
-    case 3:
         dosjf();
         break;
+    case 3:
+        exit(0);
     default:
         cout << "Invalid choice" << endl;
         break;
