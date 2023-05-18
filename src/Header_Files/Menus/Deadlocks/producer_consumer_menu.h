@@ -1,41 +1,134 @@
-#include<iostream>
-#include<fstream>
+#include <iostream>
 #include "Deadlocks_Headers\producer_consumer.h"
 using namespace std;
 
-int producer_consumer_menu(){
+int producer_consumer_menu()
+{
     int n;
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "--------------------------------Producer Consumer Problem using Semaphores--------------------------------" << endl;
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "\t\t\t\t\tChoose any one of the following" << endl;
     cout << "\t\t\t\t\t1. Producer Consumer Problem using Semaphores Description" << endl;
-    // cout << "\t\t\t\t\t2. Producer Consumer Problem using Semaphores Example" << endl;
     cout << "\t\t\t\t\t2. Producer Consumer Problem using Semaphores Code" << endl;
     cout << "\t\t\t\t\t3. Exit" << endl;
     cout << "Enter your choice: ";
     cin >> n;
-    fstream myfile;
-    string line;
     system("cls");
     switch (n)
     {
     case 1:
-        myfile.open("Producer_Consumer_Description.txt", ios::in);
-        while (getline(myfile, line))
-        {
-            cout << line << endl;
-        }
-        myfile.close();
+        cout << "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << "SEMAPHORES:" << endl;
+        cout << "- During scenarios where multiple processes are sharing a common resource, a critical section must exist. " << endl;
+        cout << "- Semaphore is a variable used as a tool to implement process synchronization by ensuring that the necessary conditions are met when a process is in critical section. " << endl;
+        cout << "   Only 2 operations can be performed on it namely wait() and signal()." << endl;
+        cout << "- Wait: Decrements semaphore value and when it is equal to 0 it waits (infinite loop) until it gets incremented(signaled)." << endl;
+        cout << "wait(S){" << endl;
+        cout << "while(S<=0);   // busy waiting" << endl;
+        cout << "S--;" << endl;
+        cout << "}" << endl;
+        cout << "- Signal: Increments value of Semaphore." << endl;
+        cout << "signal(S){" << endl;
+        cout << "S++;" << endl;
+        cout << "}" << endl;
+        cout << "" << endl;
+        cout << "DEADLOCK:" << endl;
+        cout << "- A state where no process can further progress in terms of execution. " << endl;
+        cout << "- This occurs usually where multiple processes are sharing common resources simultaneously and two or more processes might hold resources which are needed for each other." << endl;
+        cout << "  There are some necessary conditions for deadlock to happen such as Mutual Exclusion, Hold and Wait, Non PreEmption and Circular Flow. " << endl;
+        cout << "" << endl;
+        cout << "* PRODUCER CONSUMER PROBLEM: A Process Synchronization Problem where the producer and the consumer share a common resource named Buffer." << endl;
+        cout << "Producer adds item to the buffer and consumer takes the item from it.To prevent any inefficient execution while in critical section, semaphores can be used here as follows:" << endl;
+        cout << "Using two semaphores namely Full and Empty and initializing mutex value to 1." << endl;
+        cout << "Solution for Producer:" << endl;
+        cout << "do{" << endl;
+        cout << "//produce an item" << endl;
+        cout << "wait(empty);" << endl;
+        cout << "wait(mutex);" << endl;
+        cout << "//place in buffer" << endl;
+        cout << "signal(mutex);" << endl;
+        cout << "signal(full);" << endl;
+        cout << "}while(true) //Producer has to wait while consumer is accessing buffer and when buffer is full. " << endl;
+        cout << "" << endl;
+        cout << "Solution for Consumer:" << endl;
+        cout << "do{" << endl;
+        cout << "wait(full);" << endl;
+        cout << "wait(mutex);" << endl;
+        cout << "// consume item from buffer" << endl;
+        cout << "signal(mutex);" << endl;
+        cout << "signal(empty);" << endl;
+        cout << "}while(true) //Consumer has to wait while producer is accessing buffer and when buffer is empty. " << endl;
+        cout << "" << endl;
+        cout << "EXAMPLE:" << endl;
+        cout << "Let's look at scenario of producer consumer problem:" << endl;
+        cout << "We have a buffer size of 8 and a Counting Semaphore where empty=2 and full=4" << endl;
+        cout << "----------------" << endl;
+        cout << "  0             " << endl;
+        cout << "----------------" << endl;
+        cout << "  1       B" << endl;
+        cout << "----------------" << endl;
+        cout << "  2       C" << endl;
+        cout << "----------------" << endl;
+        cout << "  3       D" << endl;
+        cout << "----------------" << endl;
+        cout << "  4       E" << endl;
+        cout << "---------------" << endl;
+        cout << "  5" << endl;
+        cout << " --------------" << endl;
+        cout << "  6 " << endl;
+        cout << " --------------" << endl;
+        cout << " 7" << endl;
+        cout << " --------------" << endl;
+        cout << "S = 0(Value of Binary semaphore)" << endl;
+        cout << "in = 5( next empty buffer)" << endl;
+        cout << "out = 1(first filled buffer)" << endl;
+        cout << "" << endl;
+        cout << "Suppose just after this context, switch occurs back to producer code" << endl;
+        cout << "Since the next instruction of producer() is wait(S);, this will trap the producer process, as the current value of S is 0, and wait(0); is an infinite loop: as per the definition of wait, hence producer cannot move further." << endl;
+        cout << "Therefore, we move back to the consumer process next instruction." << endl;
+        cout << "signal(S); will now increment the value of S to 1." << endl;
+        cout << "signal(empty); will increment empty by 1, i.e. empty = 3 " << endl;
+        cout << "" << endl;
+        cout << "Current Buffer Situation:" << endl;
+        cout << "Counting Semaphore has empty=3 and full=4" << endl;
+        cout << "in=5(Next Empty Buffer)" << endl;
+        cout << "out=1(First Filled Buffer)" << endl;
+        cout << "Now moving back to producer() code;" << endl;
+        cout << "" << endl;
+        cout << "Since the next instruction of producer() is wait(S); will successfully execute, as S is now 1 and it will decrease the value of S by 1, i.e. S = 0" << endl;
+        cout << "Buffer[in] = itemP; → Buffer[5] = F. ( F is inserted now)" << endl;
+        cout << "in = (in + 1) mod n → (5 + 1)mod 8 → 6, therefore in = 6; (next empty buffer)" << endl;
+        cout << "signal(S); will increment S by 1," << endl;
+        cout << "signal(full); will increment full by 1, i.e. full = 5" << endl;
+        cout << "" << endl;
+        cout << "In this case Empty=3 and full=5" << endl;
+        cout << "in=6(Next Empty Buffer)" << endl;
+        cout << "out=1(First Filled Buffer)" << endl;
+        cout << "Now add current value of full and empty, i.e. full + empty = 5 + 3 = 8." << endl;
+        cout << "Hence no inconsistent result is generated even after so many context switches." << endl;
+        cout << "---------------" << endl;
+        cout << "0     " << endl;
+        cout << "---------------" << endl;
+        cout << "1      B" << endl;
+        cout << "----------------" << endl;
+        cout << "2      C" << endl;
+        cout << "----------------" << endl;
+        cout << "3      D" << endl;
+        cout << "----------------" << endl;
+        cout << "4      E" << endl;
+        cout << "-----------------" << endl;
+        cout << "5      F" << endl;
+        cout << "----------------" << endl;
+        cout << "6" << endl;
+        cout << "----------------" << endl;
+        cout << "7" << endl;
+        cout << "----------------" << endl;
+        cout << "" << endl;
+        cout << "- The final outcome of this algorithm is that we can ensure efficient use of shared resources among incoming processes and simulatenously prevent corruption of data. " << endl;
+        cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << "" << endl;
         break;
-    // case 2:
-    //     myfile.open("Producer_Consumer_Example.txt", ios::in);
-    //     while (getline(myfile, line))
-    //     {
-    //         cout << line << endl;
-    //     }
-    //     myfile.close();
-    //     break;
     case 2:
         producer_consumer();
         break;

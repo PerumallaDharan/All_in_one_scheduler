@@ -1,41 +1,150 @@
-#include<iostream>
-#include<fstream>
+#include <iostream>
 #include "Deadlocks_Headers\banker.h"
 using namespace std;
 
-int bankers_menu(){
+int bankers_menu()
+{
     int n;
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "--------------------------------------------Bankers Algorithm----------------------------------------------" << endl;
     cout << "-----------------------------------------------------------------------------------------------------------" << endl;
     cout << "\t\t\t\t\tChoose any one of the following" << endl;
     cout << "\t\t\t\t\t1. Bankers Algorithm Description" << endl;
-    // cout << "\t\t\t\t\t2. Bankers Algorithm Example" << endl;
     cout << "\t\t\t\t\t2. Bankers Algorithm Code" << endl;
     cout << "\t\t\t\t\t3. Exit" << endl;
     cout << "Enter your choice: ";
     cin >> n;
-    fstream myfile;
-    string line;
     system("cls");
     switch (n)
     {
     case 1:
-        myfile.open("Bankers_Description.txt", ios::in);
-        while (getline(myfile, line))
-        {
-            cout << line << endl;
-        }
-        myfile.close();
+        cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << "SEMAPHORES:" << endl;
+        cout << "- During scenarios where multiple processes are sharing a common resource, a critical section must exist. " << endl;
+        cout << "- Semaphore is a variable used as a tool to implement process synchronization by ensuring that the necessary conditions are met when a process is in critical section. " << endl;
+        cout << "   Only 2 operations can be performed on it namely wait() and signal()." << endl;
+        cout << "- Wait: Decrements semaphore value and when it is equal to 0 it waits (infinite loop) until it gets incremented(signaled)." << endl;
+        cout << "wait(S){" << endl;
+        cout << "while(S<=0);   // busy waiting" << endl;
+        cout << "S--;" << endl;
+        cout << "}" << endl;
+        cout << "- Signal: Increments value of Semaphore." << endl;
+        cout << "signal(S){" << endl;
+        cout << "S++;" << endl;
+        cout << "}" << endl;
+        cout << "DEADLOCK:" << endl;
+        cout << "- A state where no process can further progress in terms of execution. " << endl;
+        cout << "- This occurs usually where multiple processes are sharing common resources simultaneously and two or more processes might hold resources which are needed for each other." << endl;
+        cout << "  There are some necessary conditions for deadlock to happen such as Mutual Exclusion, Hold and Wait, Non PreEmption and Circular Flow. " << endl;
+        cout << "" << endl;
+        cout << "* BANKERS ALGORITHM: This is one such deadlock avoidance algorithm and there are 4 data structures involved in it’s implementation. " << endl;
+        cout << "  They are Available, Max, Need and Allocated Matrix. " << endl;
+        cout << "   It has two sub-algorithms running namely Safety and Resource-Request Algorithm." << endl;
+        cout << "    " << endl;
+        cout << "Safety Algo: Safety Algorithm checks if system is in safe state (No likely deadlock) while resource request algorithm checks if the resources requested can be assigned properly." << endl;
+        cout << "" << endl;
+        cout << "Let Work and Finish be vectors of length ‘m’ and ‘n’ respectively. " << endl;
+        cout << "Initialize: Work = Available " << endl;
+        cout << "Finish[i] = false; for i=1, 2, 3, 4….n" << endl;
+        cout << "2) Find an i such that both " << endl;
+        cout << "a) Finish[i] = false " << endl;
+        cout << "b) Need[i] <= Work " << endl;
+        cout << "if no such i exists Go to step 4" << endl;
+        cout << "3) Work = Work + Allocation[i] " << endl;
+        cout << "Finish[i] = true " << endl;
+        cout << "goto step (2)" << endl;
+        cout << "4) if Finish [i] = true for all i " << endl;
+        cout << "then the system is in a safe state " << endl;
+        cout << "" << endl;
+        cout << "Resource Request Algo: " << endl;
+        cout << "1) If Request[i]<= Need[i]" << endl;
+        cout << "Goto step (2) ; otherwise, raise an error condition, since the process has exceeded its maximum claim." << endl;
+        cout << "2) If Request[i] <= Available " << endl;
+        cout << "Go to step (3) else,Pi must wait as resources are lacking." << endl;
+        cout << "3) If resources requested are allocated to Pi then: " << endl;
+        cout << "Available = Available – Request[i]" << endl;
+        cout << "Allocation[i]= Allocationi + Request[i]" << endl;
+        cout << "Need[i] = Need[i]– Request[i]" << endl;
+        cout << "" << endl;
+        cout << "EXAMPLE:" << endl;
+        cout << "Matrix:" << endl;
+        cout << "---------------------------------------------------------" << endl;
+        cout << "Process    Allocation       Max          Available" << endl;
+        cout << "	A    B    C     A   B   C       A    B    C" << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "P1             0     1    0     7    5   3      3     3    2" << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "P2            2     0    0     3    2   2    " << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "P3            3     0    2     9    0   2" << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "P4            2     1     1     2    2   2" << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "P5            0     0     2    4    3   3" << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "From Above Table We Infer the Need Matrix as Follows:" << endl;
+        cout << "Need [i] = Max [i] - Allocation [i]" << endl;
+        cout << "Need for P1: (7, 5, 3) - (0, 1, 0) = 7, 4, 3" << endl;
+        cout << "Need for P2: (3, 2, 2) - (2, 0, 0) = 1, 2, 2" << endl;
+        cout << "Need for P3: (9, 0, 2) - (3, 0, 2) = 6, 0, 0" << endl;
+        cout << "Need for P4: (2, 2, 2) - (2, 1, 1) = 0, 1, 1" << endl;
+        cout << "Need for P5: (4, 3, 3) - (0, 0, 2) = 4, 3, 1" << endl;
+        cout << "" << endl;
+        cout << "Safe Sequence:" << endl;
+        cout << "Available Resources of A, B and C are 3, 3, and 2." << endl;
+        cout << "Step 1: For Process P1:" << endl;
+        cout << "Need <= Available" << endl;
+        cout << "7, 4, 3 <= 3, 3, 2 condition is false." << endl;
+        cout << "So, we examine another process, P2." << endl;
+        cout << "" << endl;
+        cout << "Step 2: For Process P2:" << endl;
+        cout << "Need <= Available" << endl;
+        cout << "1, 2, 2 <= 3, 3, 2 condition true" << endl;
+        cout << "New available = available + Allocation" << endl;
+        cout << "(3, 3, 2) + (2, 0, 0) => 5, 3, 2" << endl;
+        cout << "Similarly, we examine another process P3." << endl;
+        cout << "" << endl;
+        cout << "Step 3: For Process P3:" << endl;
+        cout << "P3 Need <= Available" << endl;
+        cout << "6, 0, 0 < = 5, 3, 2 condition is false." << endl;
+        cout << "Similarly, we examine another process, P4." << endl;
+        cout << "" << endl;
+        cout << "Step 4: For Process P4:" << endl;
+        cout << "P4 Need <= Available" << endl;
+        cout << "0, 1, 1 <= 5, 3, 2 condition is true" << endl;
+        cout << "New Available resource = Available + Allocation" << endl;
+        cout << "5, 3, 2 + 2, 1, 1 => 7, 4, 3" << endl;
+        cout << "Similarly, we examine another process P5." << endl;
+        cout << "" << endl;
+        cout << "Step 5: For Process P5:" << endl;
+        cout << "P5 Need <= Available" << endl;
+        cout << "4, 3, 1 <= 7, 4, 3 condition is true" << endl;
+        cout << "New available resource = Available + Allocation" << endl;
+        cout << "7, 4, 3 + 0, 0, 2 => 7, 4, 5" << endl;
+        cout << "Now, we again examine each type of resource request for processes P1 and P3." << endl;
+        cout << "" << endl;
+        cout << "Step 6: For Process P1:" << endl;
+        cout << "P1 Need <= Available" << endl;
+        cout << "7, 4, 3 <= 7, 4, 5 condition is true" << endl;
+        cout << "New Available Resource = Available + Allocation" << endl;
+        cout << "7, 4, 5 + 0, 1, 0 => 7, 5, 5" << endl;
+        cout << "So, we examine another process P2." << endl;
+        cout << "" << endl;
+        cout << "Step 7: For Process P3:" << endl;
+        cout << "P3 Need <= Available" << endl;
+        cout << "6, 0, 0 <= 7, 5, 5 condition is true" << endl;
+        cout << "" << endl;
+        cout << "New Available Resource = Available + Allocation" << endl;
+        cout << "7, 5, 5 + 3, 0, 2 => 10, 5, 7" << endl;
+        cout << "" << endl;
+        cout << "Hence the Safe Sequence is P2, P4, P5, P1 and P3." << endl;
+        cout << "" << endl;
+        cout << "The final outcome of this algorithm's implementation is that we can predict if system is in safe state or not and the sequnce needed for it" << endl;
+        cout << "along with ensuring that the resources are allocated efficiently thereby resolving any possible deadlock situation." << endl;
+        cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+        cout << " " << endl;
+        cout << "" << endl;
         break;
-    // case 2:
-    //     myfile.open("Bankers_Example.txt", ios::in);
-    //     while (getline(myfile, line))
-    //     {
-    //         cout << line << endl;
-    //     }
-    //     myfile.close();
-    //     break;
     case 2:
         banker();
         break;

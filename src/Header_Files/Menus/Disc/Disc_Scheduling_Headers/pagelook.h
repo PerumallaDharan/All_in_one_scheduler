@@ -102,8 +102,8 @@ void dopagelook()
     }
 
     // Display the total number of seek operations
-    cout << "Initial position of head: "<< head << endl;
-    cout << "Total number of seek operations = "<< seek_count << endl;
+    cout << "Final position of the pointer: "<< head << endl;
+    cout << "Total number of seek operations: "<< seek_count << endl;
     cout << "Seek Sequence is" << endl;
     for (int i = 0; i < seek_sequence.size(); i++)
     {

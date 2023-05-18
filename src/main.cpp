@@ -8,6 +8,7 @@
 // 5. Grandhi Dinesh          |      AP21110010240
 
 #include <iostream>
+#include <fstream>
 #include "Header_Files\CPU_header.h"
 #include "Header_Files\Page_header.h"
 #include "Header_Files\Disc_header.h"
