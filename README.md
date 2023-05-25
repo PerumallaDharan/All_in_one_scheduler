@@ -11,31 +11,30 @@
     - Page Replacer
 - Each part has its own folder in the src folder
     - CPU Scheduler
-        - [FCFS](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/CPU_Scheduling_Headers/fcfs.h)
-        - [SJF](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/CPU_Scheduling_Headers/sjf.h)
-        - [Priority](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/CPU_Scheduling_Headers/priority.h)
-        - [Preemptive Priority](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/CPU_Scheduling_Headers/preemptive.h)
-        - [Round Robin](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/CPU_Scheduling_Headers/roundrobin.h)
+        - FCFS
+        - SJF
+        - Priority
+        - Preemptive Priority
+        - Round Robin
     - Disc Scheduler
-        - [FCFS](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Disc_Scheduling_Headers/pagefcfs.h)
-        - [SSTF](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Disc_Scheduling_Headers/pagesstf.h)
-        - [SCAN](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Disc_Scheduling_Headers/pagescan.h)
-        - [LOOK](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Disc_Scheduling_Headers/pagelook.h)
+        - FCFS
+        - SSTF
+        - SCAN
+        - LOOK
     - Deadlock Handler
-        - [Producer Consumer](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Deadlocks_Headers/producer_consumer.h)
-        - [Banker's Algorithm](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Deadlocks_Headers/banker.h)
+        - Producer Consumer
+        - Banker's Algorithm
     - Page Replacer
-        - [FIFO](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Page_Replacement_Headers/fifo.h)
-        - [LRU](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Page_Replacement_Headers/lru.h)
-        - [Optimal](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Page_Replacement_Headers/optimal.h)
-        - [LFU](https://github.com/PerumallaDharan/Operating_Systems/blob/master/Project/src/Header_Files/Page_Replacement_Headers/lfu.h)
-
+        - FIFO
+        - LRU
+        - Optimal
+        - LFU
 <hr>
 
 ## How to run the project
 - Clone the repository
     ```bash
-    $ git clone https://github.com/PerumallaDharan/Operating_Systems.git
+    $ git clone https://github.com/PerumallaDharan/All_in_one_scheduler
     ```
 - Open the project in Visual Studio
 - First go the folder where the project is cloned
@@ -69,7 +68,7 @@
 
 ## Team Members
 - [Perumalla Dharan](https://github.com/PerumallaDharan)        
-- [Tarun Teja Kudeti]()       
+- [Tarun Teja Kudeti](https://github.com/TaruntejaKudeti)       
 - [Subrahmanya Sastry N](https://github.com/PavanNVSS)   
 - [Vatala Phalgun](https://github.com/Vatala-Phalgun)          
 - [Grandhi Dinesh](https://github.com/dinesh-grandhi)
